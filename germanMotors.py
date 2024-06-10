@@ -111,5 +111,5 @@ class MercedesEmblem():
         plt.show()
 
 # Usage
-emblem_creator = EmblemCreator()
-emblem_creator.create_emblem("germanMotors.pdf")
+emblem_creator = MercedesEmblem()
+emblem_creator.create_emblem("germanMotors.jpeg")
