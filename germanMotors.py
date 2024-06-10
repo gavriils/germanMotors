@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.font_manager import FontProperties
 
-class EmblemCreator():
+class MercedesEmblem():
     def __init__(self, font_path='MercedesFont.ttf'):
         self.font_path = font_path
         self.fig, self.ax = plt.subplots(figsize=(6, 6))
@@ -25,8 +25,8 @@ class EmblemCreator():
 
     def draw_tristar(self):
         center = np.array([0.5, 0.5])
-        radius = 0.37  # Adjust as needed to fit the emblem
-        angles = np.linspace(0, 2 * np.pi, 4)[:-1] + np.pi / 6 + np.pi # 120-degree intervals, starting from 30 degrees
+        radius = 0.37
+        angles = np.linspace(0, 2 * np.pi, 4)[:-1] + np.pi / 6 + np.pi 
         end_points = []
 
         for angle in angles:
@@ -46,7 +46,7 @@ class EmblemCreator():
     def draw_inverted_tristar(self):
         center = np.array([0.5, 0.5])
         radius = 0.04  # Adjust as needed to fit the emblem
-        angles = np.linspace(0, 2 * np.pi, 4)[:-1] + np.pi / 6 # 120-degree intervals, starting from 30 degrees
+        angles = np.linspace(0, 2 * np.pi, 4)[:-1] + np.pi / 6 
         end_points = []
 
         for angle in angles:
@@ -61,7 +61,7 @@ class EmblemCreator():
         center = (0.5, 0.5)
         angle_step = (2 * np.pi) / len(text) * 1/4
         for i, char in enumerate(text):
-            angle = startAngle - np.pi/32 - angle_step * i   # Start angle at 45 degrees
+            angle = startAngle - np.pi/32 - angle_step * i
             x = center[0] + radius * np.cos(angle)
             y = center[1] + radius * np.sin(angle)
 
