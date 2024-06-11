@@ -25,8 +25,8 @@ class EmblemCreator():
 
     def draw_tristar(self):
         center = np.array([0.5, 0.5])
-        radius = 0.37  # Adjust as needed to fit the emblem
-        angles = np.linspace(0, 2 * np.pi, 4)[:-1] + np.pi / 6 + np.pi # 120-degree intervals, starting from 30 degrees
+        radius = 0.37  
+        angles = np.linspace(0, 2 * np.pi, 4)[:-1] + np.pi / 6 + np.pi 
         end_points = []
 
         for angle in angles:
@@ -35,17 +35,17 @@ class EmblemCreator():
             self.ax.plot([center[0], x_end], [center[1], y_end], color='white', linewidth=2)
             end_points.append((x_end, y_end, angle))
 
-        inner_radius = radius - 0.02  # Adjust as necessary to ensure lines don't overlap
+        inner_radius = radius - 0.02  
         spread_angle = 6
         for x_end, y_end, angle in end_points:
-            for delta in [-np.pi * spread_angle/180, np.pi * spread_angle/180]:  # ±5 degrees
+            for delta in [-np.pi * spread_angle/180, np.pi * spread_angle/180]:  # +/- spread_angle degrees
                 x_meet = x_end - inner_radius * np.cos(angle + delta)
                 y_meet = y_end - inner_radius * np.sin(angle + delta)
                 self.ax.plot([x_end, x_meet], [y_end, y_meet], color='white', linewidth=2)
 
     def draw_inverted_tristar(self):
         center = np.array([0.5, 0.5])
-        radius = 0.04  # Adjust as needed to fit the emblem
+        radius = 0.04 
         angles = np.linspace(0, 2 * np.pi, 4)[:-1] + np.pi / 6 # 120-degree intervals, starting from 30 degrees
         end_points = []
 
@@ -61,7 +61,7 @@ class EmblemCreator():
         center = (0.5, 0.5)
         angle_step = (2 * np.pi) / len(text) * 1/4
         for i, char in enumerate(text):
-            angle = startAngle - np.pi/32 - angle_step * i   # Start angle at 45 degrees
+            angle = startAngle - np.pi/32 - angle_step * i
             x = center[0] + radius * np.cos(angle)
             y = center[1] + radius * np.sin(angle)
 
@@ -76,7 +76,7 @@ class EmblemCreator():
         center = (0.5, 0.5)
         angle_step = (2 * np.pi) / len(text)
         for i, char in enumerate(text):
-            angle = startAngle + angle_step * i * 0.25  # Start angle at 45 degrees
+            angle = startAngle + angle_step * i * 0.25
             x = center[0] + radius * np.cos(angle)
             y = center[1] + radius * np.sin(angle)
 
@@ -101,7 +101,7 @@ class EmblemCreator():
         self.draw_second_outer_circle()
         self.draw_first_inner_circle()
         self.draw_second_inner_circle()
-        self.draw_tristar()  # Draw the tristar
+        self.draw_tristar()
         self.draw_inverted_tristar()
         self.add_top_text(text='German Motors')
         self.add_bottom_text(text='The Best Or Nothing')
